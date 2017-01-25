@@ -13,16 +13,18 @@ namespace Client
         {
             SampleClass sampleClass = new SampleClass();
             sampleClass.Initialize();
-            dynamic result = sampleClass.GetPeopleByJoiningDate(2016);
-            foreach(dynamic item in result)
+            var result = sampleClass.GetPeopleByJoiningDate(2016);
+            foreach (var item in result)
             {
-                Console.WriteLine($"{item.GetType().GetProperty("JoiningDate").GetValue(item,null)}:");
+                Console.WriteLine($"{item.GetType().GetProperty("JoiningDate").GetValue(item, null)}:");
                 foreach (dynamic name in item.GetType().GetProperty("Names").GetValue(item, null))
                 {
                     Console.WriteLine($"\t{name}");
-                }
+                }              
             }
             Console.ReadLine();
         }
+
+
     }
 }

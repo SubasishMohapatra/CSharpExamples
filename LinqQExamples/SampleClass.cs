@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Dynamic;
 
 namespace LinqQExamples
 {
@@ -37,10 +38,11 @@ namespace LinqQExamples
 
         public dynamic GetPeopleByJoiningDate(int year)
         {
-            return from p in persons
-                          group p.Name by p.JoiningDate.Year into g
-                          select new { JoiningDate = g.Key, Names = g.ToList() };
+           return from p in persons
+                     group p.Name by p.JoiningDate.Year into g
+                     select new { JoiningDate = g.Key, Names = g.ToList() };
         }
+
     }
 
     public class Person
